@@ -13,3 +13,4 @@ Append-only (spec §17). Format: YYYY-MM-DD | Stage | Actor | Description
 2026-08-12 | Data | User | QueryFan fan-out export placed at pages/TRUST-002/ (Coconino permits/licensing page).
 2026-09-07 | query_triage | User | Approved projects/heat-pump-installation-kachina-az/pages/TRUST-002/query-triage-v1.md via /approve (issue #26). Canonical query_triage:TRUST-002.
 2026-09-07 | brief | User | Approved projects/heat-pump-installation-kachina-az/briefs/TRUST-002/brief-v1.md via /approve (issue #26). Canonical brief:TRUST-002.
+2026-09-07 | content | User | Approved projects/heat-pump-installation-kachina-az/content/TRUST-002/content-v1.md via /approve (issue #26). Canonical content:TRUST-002.
