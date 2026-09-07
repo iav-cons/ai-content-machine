@@ -1,0 +1,70 @@
+# Session messages from the GitHub UI: Actions tab → "Generate session message".
+# bootstrap = one-time project-chat setup (auto-split into pasteable parts);
+# sync = announce an approved/changed artifact into the chat (repo is truth).
+# Parts are posted as separate issue comments and attached as an artifact.
+name: Generate session message
+on:
+  workflow_dispatch:
+    inputs:
+      project_id:
+        description: "Project id (folder under projects/)"
+        required: true
+      mode:
+        description: "bootstrap | sync"
+        required: true
+        default: "bootstrap"
+      artifact_path:
+        description: "sync only: repo-relative path of the approved/changed file"
+        required: false
+      issue_number:
+        description: "Issue to post the message parts to (optional)"
+        required: false
+permissions:
+  contents: read
+  issues: write
+jobs:
+  session:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main   # sessions are ALWAYS built from canonical main
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install pyyaml
+      - name: Build message
+        run: |
+          mkdir -p out
+          if [ "${{ github.event.inputs.mode }}" = "bootstrap" ]; then
+            python engine/scripts/make_session.py bootstrap \
+              --project "${{ github.event.inputs.project_id }}" --stdout > full.txt
+            awk 'BEGIN{n=1} /^88888888/{n++; next} {print > sprintf("out/part%02d.md", n)}' full.txt
+            find out -type f -size -10c -delete
+            cp full.txt out/full.md
+          else
+            python engine/scripts/make_session.py sync \
+              --project "${{ github.event.inputs.project_id }}" \
+              --artifact "${{ github.event.inputs.artifact_path }}" --stdout > out/part01.md
+          fi
+          ls -la out/
+      - uses: actions/upload-artifact@v4
+        with:
+          name: session-message
+          path: out/
+      - name: Post parts to issue
+        if: ${{ github.event.inputs.issue_number != '' }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          for f in out/part*.md; do
+            {
+              echo "**Session message** — paste the block below into the project chat as ONE message. Multi-part bootstrap: wait for MIRENA's READY reply before pasting the next part."
+              echo ""
+              echo '``````'
+              cat "$f"
+              echo '``````'
+            } > comment.md
+            gh issue comment "${{ github.event.inputs.issue_number }}" --repo "${{ github.repository }}" --body-file comment.md \
+              || echo "Comment failed for $f (size limit?) — download the workflow artifact instead."
+          done

@@ -1,0 +1,43 @@
+# STATUS BOARD (spec §20): daily overview of every project + page queue + stalls,
+# kept in a pinned-style issue titled "STATUS BOARD" (issues aren't blocked by
+# branch protection, so the board can update itself). Stalls optionally ping a
+# Make webhook (repo secret MAKE_STATUS_WEBHOOK_URL) for notifications.
+name: Status report
+on:
+  schedule:
+    - cron: "0 6 * * *"
+  workflow_dispatch:
+permissions:
+  contents: read
+  issues: write
+jobs:
+  status:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install pyyaml
+      - name: Build report
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python engine/scripts/status_report.py --with-issues --out status.md --stalls stalls.json
+      - name: Update STATUS BOARD issue
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          N=$(gh issue list --state open --search "STATUS BOARD in:title" --json number --jq '.[0].number' 2>/dev/null || true)
+          if [ -z "$N" ] || [ "$N" = "null" ]; then
+            gh issue create --title "STATUS BOARD" --body-file status.md
+          else
+            gh issue edit "$N" --body-file status.md
+          fi
+          cat status.md >> "$GITHUB_STEP_SUMMARY"
+      - name: Ping Make on stalls (optional)
+        env:
+          MAKE_STATUS_WEBHOOK_URL: ${{ secrets.MAKE_STATUS_WEBHOOK_URL }}
+        run: |
+          if [ -n "$MAKE_STATUS_WEBHOOK_URL" ] && [ -s stalls.json ] && [ "$(cat stalls.json)" != "[]" ]; then
+            curl -fsS -X POST -H "Content-Type: application/json" --data @stalls.json "$MAKE_STATUS_WEBHOOK_URL" || true
+          fi

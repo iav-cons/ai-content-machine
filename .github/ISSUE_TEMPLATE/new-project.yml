@@ -1,0 +1,29 @@
+name: "New project (intake)"
+description: "Start a project from your documents. Keep the [NEW PROJECT] tag in the title."
+title: "[NEW PROJECT] "
+body:
+  - type: input
+    id: project_id
+    attributes: { label: "Project id", description: "lowercase-hyphens, e.g. seawall-repair-florida" }
+    validations: { required: true }
+  - type: input
+    id: name
+    attributes: { label: "Project name" }
+    validations: { required: true }
+  - type: input
+    id: domain
+    attributes: { label: "Domain" }
+  - type: input
+    id: niche
+    attributes: { label: "Niche" }
+    validations: { required: true }
+  - type: input
+    id: location
+    attributes: { label: "Location / market" }
+    validations: { required: true }
+  - type: input
+    id: language
+    attributes: { label: "Language" }
+  - type: textarea
+    id: goal
+    attributes: { label: "Main business goal + priority locations + competitors (Starter Block)" }

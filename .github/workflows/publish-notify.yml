@@ -1,0 +1,46 @@
+# Publish pipeline (extension of spec §22): when canonical content merges to main,
+# build a WordPress-ready payload and POST it to the Make webhook (repo secret
+# MAKE_PUBLISH_WEBHOOK_URL). Make does the WordPress call — see docs/make-publish.md.
+# A publish record is commented on the page's issue as the audit trail.
+name: Publish notify
+on:
+  push:
+    branches: [main]
+    paths:
+      - "projects/**/content/**"
+permissions:
+  contents: read
+  issues: write
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install pyyaml markdown
+      - name: Build payloads for newly-canonical content
+        run: python engine/scripts/publish_notify.py
+      - name: Send to Make + record on page issues
+        env:
+          GH_TOKEN: ${{ github.token }}
+          MAKE_PUBLISH_WEBHOOK_URL: ${{ secrets.MAKE_PUBLISH_WEBHOOK_URL }}
+        run: |
+          [ -f payloads/manifest.tsv ] || { echo "No canonical content in this merge."; exit 0; }
+          while IFS="$(printf '\t')" read -r PAGE_ID JSON NAME URL PROJ VER; do
+            SENT="no webhook configured"
+            if [ -n "$MAKE_PUBLISH_WEBHOOK_URL" ]; then
+              if curl -fsS -X POST -H "Content-Type: application/json" --data @"$JSON" "$MAKE_PUBLISH_WEBHOOK_URL"; then
+                SENT="sent to Make publish webhook"
+              else
+                SENT="webhook POST FAILED — publish manually"
+              fi
+            fi
+            N=$(gh issue list --state open --search "\"[PAGE] $PAGE_ID\" in:title" --json number --jq '.[0].number' 2>/dev/null || true)
+            if [ -n "$N" ] && [ "$N" != "null" ]; then
+              gh issue comment "$N" --body "📤 **Publish event** — canonical content v$VER for \`$PAGE_ID\` (\`$URL\`) merged to main. Status: $SENT. Add the change-log line in this page's closing PR." || true
+            fi
+          done < payloads/manifest.tsv
