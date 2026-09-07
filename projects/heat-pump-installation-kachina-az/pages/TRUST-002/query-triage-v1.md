@@ -3,7 +3,7 @@ project_id: "heat-pump-installation-kachina-az"
 stage: query_triage
 page_id: TRUST-002
 version: 1
-status: proposed
+status: approved
 niche: "Heat Pump Installation"
 location: "Kachina Village, AZ"
 created: 2026-09-07
