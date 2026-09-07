@@ -12,3 +12,4 @@ query with two owners.
 
 | query | owner page id | verdict | added |
 |---|---|---|---|
+| What permits are required for installing a heat pump in Coconino County? | TRUST-002 | include | 2026-09-07 |
