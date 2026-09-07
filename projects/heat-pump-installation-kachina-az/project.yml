@@ -16,6 +16,7 @@ canonical:
   content_cluster: projects/heat-pump-installation-kachina-az/cluster/content-cluster-v1.md
   url_map: projects/heat-pump-installation-kachina-az/url-map/url-map-v1.yml
   query_triage:TRUST-002: projects/heat-pump-installation-kachina-az/pages/TRUST-002/query-triage-v1.md
+  brief:TRUST-002: projects/heat-pump-installation-kachina-az/briefs/TRUST-002/brief-v1.md
 session:
   mode: one-chat-per-project
   chat_started: null

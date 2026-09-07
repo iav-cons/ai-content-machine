@@ -12,3 +12,4 @@ Append-only (spec §17). Format: YYYY-MM-DD | Stage | Actor | Description
 2026-08-12 | URL Map | System | url-map-v1.yml ingested as approved canonical — 67 pages converted from url-map.md to schema v2. All page statuses reset to not_started pending production.
 2026-08-12 | Data | User | QueryFan fan-out export placed at pages/TRUST-002/ (Coconino permits/licensing page).
 2026-09-07 | query_triage | User | Approved projects/heat-pump-installation-kachina-az/pages/TRUST-002/query-triage-v1.md via /approve (issue #26). Canonical query_triage:TRUST-002.
+2026-09-07 | brief | User | Approved projects/heat-pump-installation-kachina-az/briefs/TRUST-002/brief-v1.md via /approve (issue #26). Canonical brief:TRUST-002.
