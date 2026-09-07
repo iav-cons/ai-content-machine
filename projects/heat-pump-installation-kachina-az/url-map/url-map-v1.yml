@@ -1,0 +1,977 @@
+# Converted 2026-08-16 from url-map.md by convert_urlmap.py.
+# Location-page 'owns' are prefixed with their location entity where the
+# source text was generic (sibling disambiguation).
+meta:
+  project_id: heat-pump-installation-kachina-az
+  stage: url_map
+  version: 1
+  status: approved
+  niche: Heat Pump Installation
+  location: Kachina Village, AZ
+  created: '2026-07-31'
+  job_id: INGEST-PRE-ENGINE
+  attempt: 1
+pages:
+- id: HOME-001
+  cluster: Core Commercial
+  name: Heat Pump Installation Kachina Village
+  url: /
+  type: homepage
+  primary_intent: Local commercial
+  secondary_intent: Brand discovery
+  core_entities:
+  - Heat pump installation
+  - Kachina Village
+  - cold-climate heat pumps
+  owns: Brand, primary service overview, primary CTA, service area overview
+  must_not_own: Cost, detailed comparisons, deep technical education
+  parent: null
+  priority: P1
+  status: not_started
+- id: COM-001
+  cluster: Core Commercial
+  name: Heat Pump Installation
+  url: /heat-pump-installation
+  type: service
+  primary_intent: Installation service
+  secondary_intent: Contractor selection
+  core_entities:
+  - Heat pump installation
+  - Manual J
+  - cold-climate installation
+  owns: Installation process, assessment, proposal, commissioning overview
+  must_not_own: Replacement-specific urgency, cost, rebates
+  parent: HOME-001
+  priority: P1
+  status: not_started
+- id: COM-002
+  cluster: Core Commercial
+  name: Heat Pump Replacement
+  url: /heat-pump-replacement
+  type: service
+  primary_intent: Replace existing system
+  secondary_intent: Failed-system replacement
+  core_entities:
+  - Heat pump replacement
+  - aging systems
+  - R-410A replacement
+  owns: End-of-life systems, urgent replacement, existing equipment
+  must_not_own: Generic installation process
+  parent: HOME-001
+  priority: P1
+  status: not_started
+- id: COM-003
+  cluster: Core Commercial
+  name: Cold-Climate Heat Pump Installation
+  url: /cold-climate-heat-pump-installation
+  type: service
+  primary_intent: Cold-weather installation
+  secondary_intent: Performance
+  core_entities:
+  - Cold-climate heat pumps
+  - 5°F capacity
+  owns: Cold-weather capable equipment
+  must_not_own: General sizing, rebates
+  parent: COM-001
+  priority: P1
+  status: not_started
+- id: COM-004
+  cluster: Core Commercial
+  name: Ductless Mini Split Installation
+  url: /ductless-mini-split-installation
+  type: service
+  primary_intent: Ductless installation
+  secondary_intent: Electric conversion
+  core_entities:
+  - Mini-split
+  - ductless heat pump
+  owns: Ductless systems, multi-zone overview
+  must_not_own: Ducted systems
+  parent: COM-001
+  priority: P1
+  status: not_started
+- id: COM-005
+  cluster: Core Commercial
+  name: Ducted Heat Pump Installation
+  url: /ducted-heat-pump-installation
+  type: service
+  primary_intent: Central ducted systems
+  secondary_intent: Replacement
+  core_entities:
+  - Air handler
+  - ductwork
+  - Manual D
+  owns: Existing duct systems
+  must_not_own: Mini-split ownership
+  parent: COM-001
+  priority: P1
+  status: not_started
+- id: COM-006
+  cluster: Core Commercial
+  name: Multi-Zone Heat Pump Installation
+  url: /multi-zone-heat-pump-installation
+  type: service
+  primary_intent: Multi-zone homes
+  secondary_intent: Room-by-room comfort
+  core_entities:
+  - Multi-zone systems
+  owns: Multi-zone ownership
+  must_not_own: Single-zone education
+  parent: COM-004
+  priority: P2
+  status: not_started
+- id: COM-007
+  cluster: Core Commercial
+  name: Dual Fuel Heat Pump Systems
+  url: /dual-fuel-heat-pump
+  type: service
+  primary_intent: Hybrid heating
+  secondary_intent: Propane backup
+  core_entities:
+  - Dual fuel
+  - balance point
+  owns: Hybrid systems
+  must_not_own: Propane economics
+  parent: COM-001
+  priority: P1
+  status: not_started
+- id: COM-008
+  cluster: Core Commercial
+  name: Heat Pump Installation Process
+  url: /installation-process
+  type: trust
+  primary_intent: Understand installation
+  secondary_intent: Contractor evaluation
+  core_entities:
+  - Manual J
+  - Manual S
+  - commissioning
+  owns: Installation workflow
+  must_not_own: Cost, permits
+  parent: COM-001
+  priority: P2
+  status: not_started
+- id: COM-009
+  cluster: Core Commercial
+  name: Free In-Home Heat Pump Assessment
+  url: /heat-pump-assessment
+  type: conversion
+  primary_intent: Book assessment
+  secondary_intent: Proposal
+  core_entities:
+  - Home assessment
+  - written proposal
+  owns: Assessment CTA
+  must_not_own: Generic contact page
+  parent: HOME-001
+  priority: P1
+  status: not_started
+- id: COM-010
+  cluster: Core Commercial
+  name: Heat Pump Brands We Install
+  url: /heat-pump-brands
+  type: commercial
+  primary_intent: Equipment selection
+  secondary_intent: Brand comparison
+  core_entities:
+  - Mitsubishi
+  - Daikin
+  - Carrier
+  - Bosch
+  - Fujitsu (subject to business confirmation)
+  owns: Supported brands
+  must_not_own: Generic brand rankings
+  parent: COM-001
+  priority: P2
+  status: not_started
+- id: LOC-001
+  cluster: Locations
+  name: Heat Pump Installation Kachina Village
+  url: /kachina-village
+  type: location
+  primary_intent: Local commercial
+  secondary_intent: Installation
+  core_entities:
+  - Kachina Village
+  - heat pump installation
+  owns: Kachina Village primary local service area
+  must_not_own: Flagstaff ownership
+  parent: HOME-001
+  priority: P1
+  status: not_started
+- id: LOC-002
+  cluster: Locations
+  name: Heat Pump Installation Mountainaire
+  url: /mountainaire
+  type: location
+  primary_intent: Local commercial
+  secondary_intent: Installation
+  core_entities:
+  - Mountainaire
+  owns: Mountainaire service intent
+  must_not_own: Kachina Village ownership
+  parent: HOME-001
+  priority: P1
+  status: not_started
+- id: LOC-003
+  cluster: Locations
+  name: Heat Pump Installation Flagstaff
+  url: /flagstaff
+  type: location
+  primary_intent: Local commercial
+  secondary_intent: Regional
+  core_entities:
+  - Flagstaff
+  owns: Flagstaff ownership
+  must_not_own: Kachina Village-specific content
+  parent: HOME-001
+  priority: P2
+  status: not_started
+- id: LOC-004
+  cluster: Locations
+  name: Heat Pump Installation Munds Park
+  url: /munds-park
+  type: location
+  primary_intent: Local commercial
+  secondary_intent: Regional
+  core_entities:
+  - Munds Park
+  owns: Munds Park ownership
+  must_not_own: Forest Highlands
+  parent: HOME-001
+  priority: P2
+  status: not_started
+- id: LOC-005
+  cluster: Locations
+  name: Heat Pump Installation Forest Highlands
+  url: /forest-highlands
+  type: location
+  primary_intent: Local commercial
+  secondary_intent: Luxury homes
+  core_entities:
+  - Forest Highlands
+  owns: Forest Highlands high-end installation intent
+  must_not_own: Munds Park
+  parent: HOME-001
+  priority: P2
+  status: not_started
+- id: LOC-006
+  cluster: Locations
+  name: Heat Pump Installation Doney Park
+  url: /doney-park
+  type: location
+  primary_intent: Local commercial
+  secondary_intent: Regional
+  core_entities:
+  - Doney Park
+  owns: Doney Park local service ownership
+  must_not_own: Bellemont
+  parent: HOME-001
+  priority: P3
+  status: not_started
+- id: LOC-007
+  cluster: Locations
+  name: Heat Pump Installation Bellemont
+  url: /bellemont
+  type: location
+  primary_intent: Local commercial
+  secondary_intent: Regional
+  core_entities:
+  - Bellemont
+  owns: Bellemont local service ownership
+  must_not_own: Doney Park
+  parent: HOME-001
+  priority: P3
+  status: not_started
+- id: LOC-008
+  cluster: Locations
+  name: Northern Arizona Service Area
+  url: /service-area
+  type: support
+  primary_intent: Service coverage
+  secondary_intent: Regional trust
+  core_entities:
+  - Northern Arizona
+  owns: Tier 3 overview
+  must_not_own: Individual location ownership
+  parent: HOME-001
+  priority: P3
+  status: not_started
+- id: CON-001
+  cluster: Conversion
+  name: Propane to Heat Pump Conversion
+  url: /propane-to-heat-pump
+  type: commercial
+  primary_intent: Conversion
+  secondary_intent: Cost comparison
+  core_entities:
+  - Propane conversion
+  owns: Entire propane conversion journey
+  must_not_own: Generic installation
+  parent: COM-001
+  priority: P1
+  status: not_started
+- id: CON-002
+  cluster: Conversion
+  name: Electric Baseboard to Heat Pump
+  url: /electric-baseboard-to-heat-pump
+  type: commercial
+  primary_intent: Conversion
+  secondary_intent: Ductless
+  core_entities:
+  - Electric resistance
+  owns: Electric conversion
+  must_not_own: Propane
+  parent: COM-001
+  priority: P1
+  status: not_started
+- id: CON-003
+  cluster: Conversion
+  name: Gas Furnace to Heat Pump
+  url: /gas-furnace-to-heat-pump
+  type: commercial
+  primary_intent: Conversion
+  secondary_intent: Dual fuel
+  core_entities:
+  - Natural gas
+  owns: Gas conversions
+  must_not_own: Propane
+  parent: COM-001
+  priority: P2
+  status: not_started
+- id: CON-004
+  cluster: Conversion
+  name: Wood Stove & Heat Pump Systems
+  url: /wood-stove-and-heat-pump
+  type: educational
+  primary_intent: Hybrid heating
+  secondary_intent: Backup heat
+  core_entities:
+  - Wood stove
+  - ductless
+  owns: Wood-assisted homes
+  must_not_own: Fireplace installation
+  parent: COM-001
+  priority: P3
+  status: not_started
+- id: CMP-001
+  cluster: Comparison
+  name: Heat Pump vs Propane Furnace
+  url: /heat-pump-vs-propane
+  type: comparison
+  primary_intent: Compare systems
+  secondary_intent: Operating cost
+  core_entities:
+  - Propane
+  - heat pump
+  owns: Propane comparison
+  must_not_own: Conversion process
+  parent: CON-001
+  priority: P1
+  status: not_started
+- id: CMP-002
+  cluster: Comparison
+  name: Heat Pump vs Electric Baseboard
+  url: /heat-pump-vs-electric-baseboard
+  type: comparison
+  primary_intent: Compare systems
+  secondary_intent: Savings
+  core_entities:
+  - Electric resistance
+  owns: Electric comparison
+  must_not_own: Conversion guide
+  parent: CON-002
+  priority: P1
+  status: not_started
+- id: CMP-003
+  cluster: Comparison
+  name: Heat Pump vs Gas Furnace
+  url: /heat-pump-vs-gas-furnace
+  type: comparison
+  primary_intent: Compare systems
+  secondary_intent: Dual fuel
+  core_entities:
+  - Gas furnace
+  owns: Gas comparison
+  must_not_own: Dual-fuel installation
+  parent: CON-003
+  priority: P2
+  status: not_started
+- id: CMP-004
+  cluster: Comparison
+  name: Ducted vs Ductless Heat Pumps
+  url: /ducted-vs-ductless
+  type: comparison
+  primary_intent: Choose system
+  secondary_intent: Home suitability
+  core_entities:
+  - Ducted
+  - ductless
+  owns: System comparison
+  must_not_own: Installation ownership
+  parent: COM-004
+  priority: P1
+  status: not_started
+- id: CMP-005
+  cluster: Comparison
+  name: Mini Split vs Central Heat Pump
+  url: /mini-split-vs-central
+  type: comparison
+  primary_intent: Configuration
+  secondary_intent: Retrofit
+  core_entities:
+  - Mini-split
+  owns: Configuration comparison
+  must_not_own: Ductless ownership
+  parent: COM-004
+  priority: P2
+  status: not_started
+- id: CMP-006
+  cluster: Comparison
+  name: Dual Fuel vs All-Electric
+  url: /dual-fuel-vs-all-electric
+  type: comparison
+  primary_intent: Heating strategy
+  secondary_intent: Backup heat
+  core_entities:
+  - Dual fuel
+  owns: Backup strategy
+  must_not_own: Installation
+  parent: COM-007
+  priority: P2
+  status: not_started
+- id: CMP-007
+  cluster: Comparison
+  name: Variable-Speed vs Single-Stage Heat Pumps
+  url: /variable-speed-vs-single-stage
+  type: comparison
+  primary_intent: Equipment
+  secondary_intent: Technology
+  core_entities:
+  - Variable speed
+  owns: Compressor comparison
+  must_not_own: Brand pages
+  parent: COM-010
+  priority: P3
+  status: not_started
+- id: COST-001
+  cluster: Cost
+  name: Heat Pump Installation Cost
+  url: /heat-pump-installation-cost
+  type: commercial
+  primary_intent: Installation pricing
+  secondary_intent: Project budgeting
+  core_entities:
+  - Installation cost
+  owns: Total installed cost
+  must_not_own: Operating-cost modelling
+  parent: HOME-001
+  priority: P1
+  status: not_started
+- id: COST-002
+  cluster: Cost
+  name: Heat Pump Operating Cost
+  url: /heat-pump-operating-cost
+  type: informational
+  primary_intent: Running cost
+  secondary_intent: Utility bills
+  core_entities:
+  - Operating cost
+  - COP
+  owns: Annual operating cost
+  must_not_own: Installed pricing
+  parent: COST-001
+  priority: P1
+  status: not_started
+- id: COST-003
+  cluster: Cost
+  name: Propane vs Heat Pump Running Costs
+  url: /propane-vs-heat-pump-cost
+  type: comparison
+  primary_intent: Fuel economics
+  secondary_intent: Operating savings
+  core_entities:
+  - Propane
+  - electricity
+  owns: Running-cost comparison
+  must_not_own: Conversion ownership
+  parent: CON-001
+  priority: P1
+  status: not_started
+- id: COST-004
+  cluster: Cost
+  name: Heat Pump Rebates & Incentives
+  url: /heat-pump-rebates-arizona
+  type: informational
+  primary_intent: Incentives
+  secondary_intent: Eligibility
+  core_entities:
+  - Efficiency Arizona
+  - rebates
+  owns: Incentive ownership
+  must_not_own: Installed cost
+  parent: COST-001
+  priority: P1
+  status: not_started
+- id: COST-005
+  cluster: Cost
+  name: Heat Pump Financing
+  url: /heat-pump-financing
+  type: commercial
+  primary_intent: Financing
+  secondary_intent: Affordability
+  core_entities:
+  - Financing
+  owns: Payment options
+  must_not_own: Cost comparisons
+  parent: COST-001
+  priority: P2
+  status: not_started
+- id: COST-006
+  cluster: Cost
+  name: Electrical Panel Upgrades
+  url: /electrical-panel-upgrade
+  type: educational
+  primary_intent: Installation planning
+  secondary_intent: Cost factor
+  core_entities:
+  - Panel upgrades
+  owns: Electrical coordination
+  must_not_own: Installation ownership
+  parent: COM-001
+  priority: P2
+  status: not_started
+- id: TECH-001
+  cluster: Cold Climate
+  name: Do Heat Pumps Work at 6,800 Feet?
+  url: /heat-pumps-at-6800-feet
+  type: educational
+  primary_intent: Feasibility
+  secondary_intent: Local education
+  core_entities:
+  - High altitude
+  owns: Altitude feasibility
+  must_not_own: Installation service
+  parent: HOME-001
+  priority: P1
+  status: not_started
+- id: TECH-002
+  cluster: Cold Climate
+  name: Heat Pump Performance at 5°F
+  url: /heat-pump-performance-5f
+  type: educational
+  primary_intent: Cold weather
+  secondary_intent: Capacity
+  core_entities:
+  - Heating capacity
+  owns: 5°F capacity ownership
+  must_not_own: General sizing
+  parent: TECH-001
+  priority: P1
+  status: not_started
+- id: TECH-003
+  cluster: Cold Climate
+  name: What Size Heat Pump Do I Need?
+  url: /heat-pump-sizing
+  type: educational
+  primary_intent: Sizing
+  secondary_intent: Manual J
+  core_entities:
+  - Manual J
+  owns: Sizing ownership
+  must_not_own: Cost
+  parent: TECH-001
+  priority: P1
+  status: not_started
+- id: TECH-004
+  cluster: Cold Climate
+  name: Manual J Load Calculation
+  url: /manual-j-load-calculation
+  type: educational
+  primary_intent: Design
+  secondary_intent: Trust
+  core_entities:
+  - Manual J
+  owns: Manual J education
+  must_not_own: Installation process
+  parent: TECH-003
+  priority: P2
+  status: not_started
+- id: TECH-005
+  cluster: Cold Climate
+  name: Manual S Equipment Selection
+  url: /manual-s-equipment-selection
+  type: educational
+  primary_intent: Equipment selection
+  secondary_intent: Design
+  core_entities:
+  - Manual S
+  owns: Equipment selection
+  must_not_own: Brand comparison
+  parent: TECH-004
+  priority: P2
+  status: not_started
+- id: TECH-006
+  cluster: Cold Climate
+  name: Balance Point Explained
+  url: /heat-pump-balance-point
+  type: educational
+  primary_intent: Heating strategy
+  secondary_intent: Backup heat
+  core_entities:
+  - Balance point
+  owns: Balance point
+  must_not_own: Dual-fuel ownership
+  parent: TECH-002
+  priority: P2
+  status: not_started
+- id: TECH-007
+  cluster: Cold Climate
+  name: Auxiliary Heat vs Emergency Heat
+  url: /auxiliary-vs-emergency-heat
+  type: educational
+  primary_intent: Backup heat
+  secondary_intent: Winter operation
+  core_entities:
+  - Auxiliary heat
+  owns: Backup heat education
+  must_not_own: Dual-fuel service
+  parent: TECH-006
+  priority: P2
+  status: not_started
+- id: TECH-008
+  cluster: Cold Climate
+  name: Heat Pump Defrost Cycle
+  url: /heat-pump-defrost-cycle
+  type: educational
+  primary_intent: Winter operation
+  secondary_intent: Snow
+  core_entities:
+  - Defrost
+  owns: Defrost ownership
+  must_not_own: Installation
+  parent: TECH-002
+  priority: P2
+  status: not_started
+- id: TECH-009
+  cluster: Cold Climate
+  name: Snow Stands & Outdoor Placement
+  url: /snow-stand-installation
+  type: educational
+  primary_intent: Installation quality
+  secondary_intent: Outdoor unit
+  core_entities:
+  - Snow stand
+  owns: Snow placement
+  must_not_own: Installation process
+  parent: COM-008
+  priority: P2
+  status: not_started
+- id: TECH-010
+  cluster: Cold Climate
+  name: Heat Pump Altitude Correction
+  url: /altitude-correction
+  type: educational
+  primary_intent: Engineering
+  secondary_intent: Air density
+  core_entities:
+  - Altitude correction
+  owns: Air density
+  must_not_own: Manual J ownership
+  parent: TECH-003
+  priority: P2
+  status: not_started
+- id: TRUST-001
+  cluster: Trust
+  name: Arizona ROC Licensing
+  url: /arizona-roc-license
+  type: trust
+  primary_intent: Contractor trust
+  secondary_intent: Licensing
+  core_entities:
+  - ROC
+  owns: Licensing
+  must_not_own: Installation
+  parent: HOME-001
+  priority: P1
+  status: not_started
+- id: TRUST-002
+  cluster: Trust
+  name: Coconino County Permits
+  url: /coconino-county-permits
+  type: trust
+  primary_intent: Permits
+  secondary_intent: Compliance
+  core_entities:
+  - County permits
+  owns: Permit ownership
+  must_not_own: Licensing
+  parent: TRUST-001
+  priority: P1
+  status: not_started
+- id: TRUST-003
+  cluster: Trust
+  name: AHRI Matched Systems
+  url: /ahri-matched-systems
+  type: educational
+  primary_intent: Equipment
+  secondary_intent: Certification
+  core_entities:
+  - AHRI
+  owns: AHRI ownership
+  must_not_own: Brands
+  parent: TRUST-001
+  priority: P2
+  status: not_started
+- id: TRUST-004
+  cluster: Trust
+  name: Commissioning Process
+  url: /heat-pump-commissioning
+  type: trust
+  primary_intent: Installation quality
+  secondary_intent: Documentation
+  core_entities:
+  - Commissioning
+  owns: Commissioning
+  must_not_own: Installation process
+  parent: COM-008
+  priority: P2
+  status: not_started
+- id: TRUST-005
+  cluster: Trust
+  name: Handover Documentation
+  url: /heat-pump-handover
+  type: trust
+  primary_intent: Customer documents
+  secondary_intent: Warranty
+  core_entities:
+  - Handover packet
+  owns: Documentation
+  must_not_own: Commissioning
+  parent: TRUST-004
+  priority: P2
+  status: not_started
+- id: TRUST-006
+  cluster: Trust
+  name: How to Compare Heat Pump Quotes
+  url: /compare-heat-pump-quotes
+  type: educational
+  primary_intent: Buyer guide
+  secondary_intent: Contractor selection
+  core_entities:
+  - Quotes
+  owns: Quote comparison
+  must_not_own: Cost
+  parent: TRUST-001
+  priority: P1
+  status: not_started
+- id: TRUST-007
+  cluster: Trust
+  name: Questions to Ask Your Installer
+  url: /questions-to-ask-installer
+  type: educational
+  primary_intent: Buyer guide
+  secondary_intent: Trust
+  core_entities:
+  - Contractor evaluation
+  owns: Installer questions
+  must_not_own: Installation
+  parent: TRUST-006
+  priority: P2
+  status: not_started
+- id: TRUST-008
+  cluster: Trust
+  name: Common Heat Pump Installation Mistakes
+  url: /installation-mistakes
+  type: educational
+  primary_intent: Quality
+  secondary_intent: Contractor comparison
+  core_entities:
+  - Installation quality
+  owns: Mistakes
+  must_not_own: DIY
+  parent: TRUST-006
+  priority: P2
+  status: not_started
+- id: EDU-001
+  cluster: Education
+  name: Do Heat Pumps Work in Arizona Mountains?
+  url: /heat-pumps-arizona-mountains
+  type: educational
+  primary_intent: Regional feasibility
+  secondary_intent: Climate
+  core_entities:
+  - Arizona mountains
+  owns: Regional mountain climate
+  must_not_own: Kachina Village service page
+  parent: TECH-001
+  priority: P2
+  status: not_started
+- id: EDU-002
+  cluster: Education
+  name: How Long Does a Heat Pump Last?
+  url: /heat-pump-lifespan
+  type: educational
+  primary_intent: Ownership
+  secondary_intent: Replacement planning
+  core_entities:
+  - Heat pump lifespan
+  owns: Service life
+  must_not_own: Replacement ownership
+  parent: COM-002
+  priority: P2
+  status: not_started
+- id: EDU-003
+  cluster: Education
+  name: Best Time to Install a Heat Pump
+  url: /best-time-install-heat-pump
+  type: educational
+  primary_intent: Project planning
+  secondary_intent: Seasonal timing
+  core_entities:
+  - Installation timing
+  owns: Seasonal planning
+  must_not_own: Installation process
+  parent: COST-001
+  priority: P2
+  status: not_started
+- id: EDU-004
+  cluster: Education
+  name: How Heat Pumps Heat Your Home
+  url: /how-heat-pumps-work
+  type: educational
+  primary_intent: Awareness
+  secondary_intent: Technology
+  core_entities:
+  - Refrigeration cycle
+  owns: Basic operation
+  must_not_own: Cold-weather performance
+  parent: HOME-001
+  priority: P3
+  status: not_started
+- id: EDU-005
+  cluster: Education
+  name: Common Heat Pump Myths
+  url: /heat-pump-myths
+  type: educational
+  primary_intent: Myth busting
+  secondary_intent: Objection handling
+  core_entities:
+  - Cold-climate myths
+  owns: Myth ownership
+  must_not_own: Comparison pages
+  parent: TECH-001
+  priority: P2
+  status: not_started
+- id: EDU-006
+  cluster: Education
+  name: Heat Pump Maintenance After Installation
+  url: /heat-pump-maintenance
+  type: educational
+  primary_intent: Ownership
+  secondary_intent: Service
+  core_entities:
+  - Maintenance
+  owns: Homeowner maintenance
+  must_not_own: Repair ownership
+  parent: COM-001
+  priority: P3
+  status: not_started
+- id: EDU-007
+  cluster: Education
+  name: Understanding Your Winter Electric Bill
+  url: /winter-electric-bill
+  type: educational
+  primary_intent: Cost education
+  secondary_intent: Auxiliary heat
+  core_entities:
+  - Utility bills
+  owns: Winter electricity
+  must_not_own: Cost page
+  parent: COST-002
+  priority: P2
+  status: not_started
+- id: EDU-008
+  cluster: Education
+  name: Heat Pump Noise Explained
+  url: /heat-pump-noise
+  type: educational
+  primary_intent: Buyer reassurance
+  secondary_intent: Expectations
+  core_entities:
+  - Sound levels
+  owns: Noise expectations
+  must_not_own: Defrost
+  parent: TECH-002
+  priority: P3
+  status: not_started
+- id: FAQ-001
+  cluster: FAQ
+  name: Heat Pump FAQ
+  url: /faq
+  type: faq
+  primary_intent: General questions
+  secondary_intent: Support
+  core_entities:
+  - Heat Pump FAQ
+  owns: General questions questions for the FAQ cluster
+  must_not_own: Topics owned by dedicated pages — route with links
+  parent: HOME-001
+  priority: P2
+  status: not_started
+- id: FAQ-002
+  cluster: FAQ
+  name: Installation FAQ
+  url: /installation-faq
+  type: faq
+  primary_intent: Installation
+  secondary_intent: Preparation
+  core_entities:
+  - Installation FAQ
+  owns: Installation questions for the FAQ cluster
+  must_not_own: Topics owned by dedicated pages — route with links
+  parent: FAQ-001
+  priority: P2
+  status: not_started
+- id: FAQ-003
+  cluster: FAQ
+  name: Cost FAQ
+  url: /cost-faq
+  type: faq
+  primary_intent: Pricing
+  secondary_intent: Budgeting
+  core_entities:
+  - Cost FAQ
+  owns: Pricing questions for the FAQ cluster
+  must_not_own: Topics owned by dedicated pages — route with links
+  parent: FAQ-001
+  priority: P2
+  status: not_started
+- id: FAQ-004
+  cluster: FAQ
+  name: Cold Weather FAQ
+  url: /cold-weather-faq
+  type: faq
+  primary_intent: Winter performance
+  secondary_intent: Capacity
+  core_entities:
+  - Cold Weather FAQ
+  owns: Winter performance questions for the FAQ cluster
+  must_not_own: Topics owned by dedicated pages — route with links
+  parent: FAQ-001
+  priority: P2
+  status: not_started
+- id: FAQ-005
+  cluster: FAQ
+  name: Rebates FAQ
+  url: /rebates-faq
+  type: faq
+  primary_intent: Incentives
+  secondary_intent: Eligibility
+  core_entities:
+  - Rebates FAQ
+  owns: Incentives questions for the FAQ cluster
+  must_not_own: Topics owned by dedicated pages — route with links
+  parent: FAQ-001
+  priority: P2
+  status: not_started

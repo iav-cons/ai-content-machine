@@ -1,0 +1,33 @@
+# Hard QC configuration (spec §12). Edit to match YOUR tested output structures.
+max_attempts: 3            # spec §13 — beyond this, human_review_required
+secret_scan: true          # spec §23.11
+
+# Frontmatter fields every .md artifact must carry
+frontmatter_required: [project_id, stage, version, status, niche, location, created]
+
+allowed_statuses: [proposed, approved]
+allowed_intents: [informational, commercial, transactional, navigational, local]
+allowed_priorities: [P0, P1, P2, P3]
+allowed_page_types: [homepage, service, commercial, conversion, location, support,
+  educational, comparison, informational, trust, faq]
+
+# Staleness limits in days (data decays — SERP fastest). The packet generator
+# refuses to build a job on research older than this; --allow-stale overrides
+# consciously and the acceptance is stamped into the packet.
+staleness_max_age_days:
+  serp_research: 45
+  brief: 120
+
+# Required headings per stage — regex, all must match somewhere in the artifact.
+# Defaults are minimal on purpose: add the headings YOUR tested prompts always
+# produce, and hard QC will enforce them forever.
+required_headings:
+  entity_research: ['^# ']
+  content_cluster: ['^# ']
+  brief: ['^# ']
+  content: ['<h1[ >]']
+  page_review: ['^# ']
+  query_triage: ['^# ']
+
+# Stage order gates (spec §19) — do not edit unless the spec changes
+stage_order: [entity_research, content_cluster, url_map]

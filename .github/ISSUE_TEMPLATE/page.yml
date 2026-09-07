@@ -1,0 +1,12 @@
+name: "Page production"
+description: "One issue per page (normally created by /pages). Title must contain the page id."
+title: "[PAGE] "
+body:
+  - type: input
+    id: project
+    attributes: { label: "Project id" }
+    validations: { required: true }
+  - type: input
+    id: page
+    attributes: { label: "Page id (from the approved URL map)" }
+    validations: { required: true }

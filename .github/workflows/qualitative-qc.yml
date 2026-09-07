@@ -1,0 +1,52 @@
+# Qualitative QC (spec §12) — AI review of the changed artifact against the
+# project's control/quality-checklist.md. Triggered by adding the label
+# 'needs-qualitative-qc' to a PR (so tokens are only spent when the artifact is
+# ready). The reviewer REPORTS PASS/FAIL — it never approves and never merges
+# (spec §14). Requires the ANTHROPIC_API_KEY repo secret and the Claude GitHub
+# app; config reference: https://code.claude.com/docs/en/github-actions
+name: Qualitative QC
+on:
+  pull_request:
+    types: [labeled]
+permissions:
+  contents: read
+  pull-requests: write
+  issues: write
+  id-token: write
+jobs:
+  review:
+    if: github.event.label.name == 'needs-qualitative-qc'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: anthropics/claude-code-action@v1
+        with:
+          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          prompt: |
+            You are the qualitative QC reviewer for a controlled content production
+            engine (see docs/workflow-spec.md, section 12). Review ONLY the artifact
+            files changed in this pull request, by diffing against the base branch.
+
+            Procedure:
+            1. Identify the project (projects/<id>/) and read its
+               control/quality-checklist.md, control/project-brief.md and
+               control/operating-rules.md, plus the canonical inputs listed in
+               projects/<id>/project.yml.
+            2. Evaluate the changed artifact against every applicable checklist item
+               (search intent, entity coverage, redundancy, cannibalization risk,
+               strategic quality, usefulness).
+            3. Post ONE pull request comment in exactly this format:
+
+               QUALITATIVE QC: PASS
+               or
+               QUALITATIVE QC: FAIL
+               Failures:
+               1. <exact failure>
+               2. <exact failure>
+
+            The numbered failure list must be precise enough to drive a revision job
+            (spec section 13). HARD RULES: never approve the PR, never merge, never
+            edit or commit any file, never modify approved artifacts or the change
+            log. You report; the human decides (spec section 14).

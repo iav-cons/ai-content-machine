@@ -1,0 +1,38 @@
+name: "Truth update"
+description: "Fill business facts into source-context (replaces [REQUIRES CONFIRMATION]). Leave unknowns empty."
+title: "[TRUTH] "
+body:
+  - type: input
+    id: project
+    attributes: { label: "Project id" }
+    validations: { required: true }
+  - type: input
+    id: partner
+    attributes: { label: "Fulfillment partner legal name + license number" }
+  - type: input
+    id: roc_class
+    attributes: { label: "License class / category actually held" }
+  - type: input
+    id: brands
+    attributes: { label: "Equipment or brands the partner actually installs / sells" }
+  - type: input
+    id: certs
+    attributes: { label: "Certifications genuinely held" }
+  - type: input
+    id: emergency
+    attributes: { label: "Emergency or after-hours reality" }
+  - type: textarea
+    id: contact
+    attributes: { label: "Business phone, form destination, service email, hours, who answers calls" }
+  - type: input
+    id: gbp
+    attributes: { label: "Google Business Profile" }
+  - type: textarea
+    id: costs
+    attributes: { label: "Real price ranges" }
+  - type: input
+    id: financing
+    attributes: { label: "Financing lender name + terms language" }
+  - type: input
+    id: maintenance
+    attributes: { label: "Maintenance / recurring agreement price and terms" }

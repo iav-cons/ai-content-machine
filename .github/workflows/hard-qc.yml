@@ -1,0 +1,22 @@
+# Hard QC (spec §12) — deterministic checks on every PR that touches projects/**.
+# Make this a REQUIRED status check in branch protection so QC failure blocks merge.
+name: Hard QC
+on:
+  pull_request:
+    paths:
+      - "projects/**"
+permissions:
+  contents: read
+jobs:
+  hard-qc:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install pyyaml
+      - name: Run Hard QC against base branch
+        run: python engine/scripts/hard_qc.py --ci --base "origin/${{ github.base_ref }}"

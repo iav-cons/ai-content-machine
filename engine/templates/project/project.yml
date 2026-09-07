@@ -1,0 +1,25 @@
+# Machine-readable project state (spec §19, §20). This file gates the workflow.
+# Statuses here use: not_started | in_progress | approved
+# ("awaiting approval" = an open PR that flips a status to approved; main never
+#  shows approved until the human merges — spec §14.)
+project_id: "{{PROJECT_ID}}"
+name: "{{PROJECT_NAME}}"
+domain: "{{DOMAIN}}"
+niche: "{{NICHE}}"
+location: "{{LOCATION}}"
+created: "{{DATE}}"
+
+# Source validation (spec §3): terms from OTHER projects/templates that must
+# never appear in this project's artifacts. Hard QC fails if any are found.
+contamination_terms: []
+
+# Phase 1 stage statuses (spec §2, §19). Only edited via approval PRs.
+statuses:
+  entity_research: not_started
+  content_cluster: not_started
+  url_map: not_started
+
+# Approved canonical artifacts (spec §15, §16). key -> repo-relative path.
+# Keys: entity_research, content_cluster, url_map, brief:<PAGE_ID>, content:<PAGE_ID>
+# Downstream jobs read ONLY these paths. Hard QC blocks any modification of them.
+canonical: {}

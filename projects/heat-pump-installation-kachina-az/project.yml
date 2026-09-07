@@ -1,0 +1,23 @@
+project_id: heat-pump-installation-kachina-az
+name: Kachina Village Heat Pump Installation
+domain: heat-pump-installation-kachina-az.com
+niche: Heat Pump Installation
+location: Kachina Village, AZ
+created: '2026-08-16'
+contamination_terms:
+- drain cleaning
+- seawall repair
+statuses:
+  entity_research: approved
+  content_cluster: approved
+  url_map: approved
+canonical:
+  entity_research: projects/heat-pump-installation-kachina-az/research/entity-research-v1.md
+  content_cluster: projects/heat-pump-installation-kachina-az/cluster/content-cluster-v1.md
+  url_map: projects/heat-pump-installation-kachina-az/url-map/url-map-v1.yml
+session:
+  mode: one-chat-per-project
+  chat_started: null
+  bootstrap_version: null
+  notes: Verify with payment email at chat start; bootstrap via make_session.py; approvals reach the chat
+    only as SYNC messages.

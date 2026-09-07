@@ -1,0 +1,37 @@
+meta:
+  project_id: my-next-project
+  stage: url_map
+  version: 1
+  status: proposed
+  niche: "Niche"
+  location: "City, ST"
+  created: 2026-01-01
+  job_id: JOB-0001
+  attempt: 1
+pages:
+  - id: HOME-001
+    cluster: Core Commercial
+    name: Example Service City
+    url: /
+    type: homepage
+    primary_intent: Local commercial
+    secondary_intent: Brand discovery
+    core_entities: [example service, city]
+    owns: Brand, primary service overview, primary CTA
+    must_not_own: Cost detail, technical education
+    parent: null
+    priority: P1
+    status: not_started
+  - id: COM-001
+    cluster: Core Commercial
+    name: Emergency Example Service
+    url: /emergency-example-service
+    type: service
+    primary_intent: Urgent service
+    secondary_intent: Same-day booking
+    core_entities: [emergency service]
+    owns: Urgent/emergency intent and dispatch questions
+    must_not_own: Pricing detail, brand comparisons
+    parent: HOME-001
+    priority: P1
+    status: not_started
