@@ -1,0 +1,1 @@
+Upload here: the filled source-context questionnaire, the entity analysis (file name starting `entity-analysis`), the ICP, and the writer master prompt (file name containing `persona` or `master-prompt`). Then comment `/factor` on the intake issue.
